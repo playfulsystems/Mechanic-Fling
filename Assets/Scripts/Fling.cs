@@ -7,7 +7,6 @@ public class Fling : MonoBehaviour
 {
     public float flingSpeed = 200f;
     Rigidbody2D rb;
-    Vector2 mouseDownPos;
     Vector2 mouseUpPos;
 
     void Start() {
@@ -20,6 +19,7 @@ public class Fling : MonoBehaviour
 
         // difference vector
         Vector2 diff = (Vector2)transform.position - mouseUpPos;
+        diff = diff.normalized * Mathf.Clamp(diff.magnitude, 0.5f, 2f);
 
         // add that force with speed
         rb.AddForce(diff * flingSpeed);
