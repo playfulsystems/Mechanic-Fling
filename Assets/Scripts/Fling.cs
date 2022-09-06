@@ -5,6 +5,7 @@ using UnityEngine;
 // Allows the user to click on the square, drag, and release to fling
 public class Fling : MonoBehaviour
 {
+    public IntVariable flingNum;
     public float flingSpeed = 200f;
     Rigidbody2D rb;
     Vector2 mouseUpPos;
@@ -23,5 +24,8 @@ public class Fling : MonoBehaviour
 
         // add that force with speed
         rb.AddForce(diff * flingSpeed);
+
+        // increment int var
+        flingNum.value++;
     }
 }
