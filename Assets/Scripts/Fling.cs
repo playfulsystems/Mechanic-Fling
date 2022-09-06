@@ -6,7 +6,7 @@ using UnityEngine;
 public class Fling : MonoBehaviour
 {
     public IntVariable flingNum;
-    public float flingSpeed = 200f;
+    public FloatVariable flingStrength;
     Rigidbody2D rb;
     Vector2 mouseUpPos;
 
@@ -23,7 +23,7 @@ public class Fling : MonoBehaviour
         diff = diff.normalized * Mathf.Clamp(diff.magnitude, 0.5f, 2f);
 
         // add that force with speed
-        rb.AddForce(diff * flingSpeed);
+        rb.AddForce(diff * flingStrength.value);
 
         // increment int var
         flingNum.value++;
